@@ -1,83 +1,178 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NovaStack Studio · Web Development</title>
+<title>NovaStack Studio — Websites that bring in customers</title>
+<meta name="description" content="NovaStack Studio builds fast, good-looking websites, landing pages and online stores for businesses anywhere in the world.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:dark;--bg:#0b0d12;--card:#141824;--fg:#eef1f7;--mut:#8b93a7;--acc:#9b6bff;--acc2:#2ee6a6;--bd:#232a3b;
+:root{--bg:#f6f7fb;--card:#fff;--ink:#12163a;--mut:#555b7e;--line:#dfe2f0;--hero:#12163a;--heroink:#f6f7fb;--acc:#4b3dff;--acc2:#ff6a4d;--accink:#fff;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-:root[data-theme="dark"]{--bg:#0b0d12;--card:#141824;--fg:#eef1f7;--mut:#8b93a7;--acc:#9b6bff;--acc2:#2ee6a6;--bd:#232a3b}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1030;--card:#171b45;--ink:#eef0ff;--mut:#a4a9d0;--line:#2a2f66;--hero:#090b24;--acc:#8a80ff}}
+:root[data-theme="dark"]{--bg:#0d1030;--card:#171b45;--ink:#eef0ff;--mut:#a4a9d0;--line:#2a2f66;--hero:#090b24;--acc:#8a80ff}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
-main{max-width:760px;margin:0 auto;padding:28px 20px 60px}
-nav{display:flex;justify-content:space-between;align-items:center;font-weight:700}
-nav a{color:var(--mut);text-decoration:none;font-weight:500;font-size:14px;margin-left:16px}
-.hero{padding:56px 0 36px}
-.tag{display:inline-block;font-size:13px;color:var(--acc2);border:1px solid var(--bd);padding:4px 12px;border-radius:99px}
-h1{font-size:clamp(34px,9vw,56px);line-height:1.08;margin:18px 0 14px;letter-spacing:-1px}
-h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
-p.lead{color:var(--mut);font-size:17px;max-width:560px}
-.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-.btn{padding:12px 20px;border-radius:12px;font-weight:600;text-decoration:none;font-size:15px;display:inline-block}
-.pri{background:var(--acc);color:#fff}
-.sec{border:1px solid var(--bd);color:var(--fg)}
-h2{font-size:14px;text-transform:uppercase;letter-spacing:2px;color:var(--mut);margin:48px 0 16px}
-.grid{display:grid;gap:14px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:20px}
-.card h3{margin:0 0 6px;font-size:18px}
-.card p{margin:0 0 12px;color:var(--mut);font-size:15px}
-.k{font-size:12px;color:var(--acc2);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font-size:12px;padding:4px 10px;border-radius:99px;background:var(--bg);border:1px solid var(--bd);color:var(--mut)}
-.stack{display:flex;flex-wrap:wrap;gap:10px}
-.stack .chip{font-size:14px;padding:8px 14px;color:var(--fg)}
-.visit{display:inline-block;margin-top:14px;color:var(--acc);font-weight:600;text-decoration:none;font-size:15px}
-.steps{counter-reset:s;display:grid;gap:12px}
-.step{display:flex;gap:14px;align-items:flex-start}
-.step:before{counter-increment:s;content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
-.step p{margin:0;color:var(--mut)}.step b{color:var(--fg)}
-.cta{text-align:center;padding:36px 20px;margin-top:48px}
-.cta h2{margin-top:0;color:var(--fg);font-size:26px;text-transform:none;letter-spacing:-.5px}
-footer{text-align:center;color:var(--mut);font-size:13px;margin-top:36px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc2);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--hero);color:var(--heroink)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:800 20px "Bricolage Grotesque",sans-serif;text-decoration:none}
+.logo b{color:var(--acc2)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:15px}
+nav a{text-decoration:none;opacity:.85}
+nav a:hover{opacity:1}
+.btn{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:700;text-decoration:none;background:var(--acc2);color:#1a0b07;border:0;cursor:pointer;font-size:16px}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor}
+.hero{background:var(--hero);color:var(--heroink);padding:72px 0 88px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(38px,6vw,68px);font-weight:800;letter-spacing:-.02em}
+.hero p{font-size:19px;max-width:30em;opacity:.85;margin:20px 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.stack{position:relative;height:330px}
+.win{position:absolute;width:78%;background:#fff;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.4);overflow:hidden;color:#222;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.win i{display:block;height:22px;background:#e9eaf3;position:relative}
+.win i:before{content:"";position:absolute;left:10px;top:8px;width:6px;height:6px;border-radius:50%;background:#ff6a4d;box-shadow:12px 0 #ffb020,24px 0 #3ccf7a}
+.win div{height:130px;padding:14px;font:700 16px "Bricolage Grotesque",sans-serif;display:flex;align-items:flex-end}
+.w1{left:0;top:0;transform:rotate(-4deg)}.w1 div{background:linear-gradient(135deg,#1c2b4a,#c9a24a);color:#fff}
+.w2{right:0;top:80px;transform:rotate(3deg);animation-delay:.15s}.w2 div{background:linear-gradient(135deg,#0f6b5e,#7fe0c4);color:#fff}
+.w3{left:10%;top:170px;transform:rotate(-1deg);animation-delay:.3s}.w3 div{background:linear-gradient(135deg,#4b3dff,#ff6a4d);color:#fff}
+@keyframes rise{from{opacity:0;translate:0 40px}}
+@media (prefers-reduced-motion:reduce){.win{animation:none}html{scroll-behavior:auto}}
+section{padding:80px 0}
+h2{font-size:clamp(30px,4.5vw,46px);font-weight:800;letter-spacing:-.015em;margin-bottom:12px}
+.lead{color:var(--mut);max-width:38em;margin:0 0 40px}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.shot{height:170px;padding:18px;display:flex;align-items:flex-end;color:#fff;font:800 24px "Bricolage Grotesque",sans-serif}
+.card .in{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:22px}
+.card p{margin:0;color:var(--mut);font-size:16px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tags span{font-size:13px;padding:3px 10px;border-radius:99px;border:1px solid var(--line);color:var(--mut)}
+.status{font-size:13px;font-weight:700;color:var(--acc)}
+.card a.v{font-weight:700;color:var(--acc);text-decoration:none;margin-top:4px}
+.card a.v:hover{text-decoration:underline}
+.svc{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.svc div{border-top:3px solid var(--acc);padding-top:14px}
+.svc h3{font-size:21px;margin-bottom:6px}
+.svc p{margin:0;color:var(--mut);font-size:16px}
+.steps{counter-reset:s;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.steps li:before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--acc);color:var(--accink);font-weight:700;margin-bottom:10px}
+.steps b{display:block;font:700 19px "Bricolage Grotesque",sans-serif}
+.steps span{color:var(--mut);font-size:16px}
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.facts{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin:0;list-style:none}
+.facts li{padding:8px 0;border-bottom:1px solid var(--line)}.facts li:last-child{border:0}
+#contact{background:var(--hero);color:var(--heroink)}
+#contact .lead{color:inherit;opacity:.8}
+.ways{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:10px}
+.ways a{display:block;padding:20px;border:1px solid rgba(255,255,255,.25);border-radius:14px;text-decoration:none}
+.ways a:hover{background:rgba(255,255,255,.08)}
+.ways small{display:block;opacity:.7}.ways b{font-size:18px;word-break:break-word}
+footer{padding:26px 0;text-align:center;color:var(--mut);font-size:14px}
+@media (max-width:760px){.hero .wrap,.about{grid-template-columns:1fr}.stack{height:300px}nav ul li:not(:last-child){display:none}section{padding:56px 0}.hero{padding:48px 0 60px}}
 </style>
 </head>
 <body>
-<main>
-<nav><span>Nova<span style="color:var(--acc)">Stack</span> Studio</span><div><a href="#work">Work</a><a href="#how">Process</a><a href="#contact">Contact</a></div></nav>
+<nav><div class="wrap"><a class="logo" href="#top">Nova<b>Stack</b> Studio</a>
+<ul><li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
 
-<section class="hero">
-<span class="tag">● Open for new projects</span>
-<h1>We build <span>fast, clean websites</span> that make people trust your brand.</h1>
-<p class="lead">NovaStack Studio is a web development studio led by Ashiri Samuel. We build landing pages, business sites and booking systems for real estate, hospitality and crypto brands.</p>
-<div class="btns"><a class="btn pri" href="#contact">Start a project</a><a class="btn sec" href="#work">See live work</a></div>
-</section>
+<header class="hero" id="top"><div class="wrap">
+<div>
+<h1>Websites that make customers say “yes.”</h1>
+<p>NovaStack Studio designs and builds fast, mobile-friendly websites, landing pages and online stores for businesses and creators anywhere in the world.</p>
+<div class="cta"><a class="btn" href="#contact">Start your project</a><a class="btn ghost" href="#work">See our work</a></div>
+</div>
+<div class="stack" aria-hidden="true">
+<div class="win w1"><i></i><div>Real estate</div></div>
+<div class="win w2"><i></i><div>Hotel booking</div></div>
+<div class="win w3"><i></i><div>Your business</div></div>
+</div></div></header>
 
-<h2 id="work">Live work</h2>
+<section id="work"><div class="wrap">
+<h2>Selected work</h2>
+<p class="lead">Live websites and systems we’ve built, plus concept builds that show what we can do for your industry.</p>
 <div class="grid">
-<div class="card"><div class="k">Real estate</div><h3>Realtor Emeka Britking</h3><p>A landing page built for a real estate professional to present his brand and bring in property enquiries.</p><div class="chips"><span class="chip">Landing page</span><span class="chip">Real estate</span></div><a class="visit" href="https://novastack-studio1.github.io/RealtorEmekaBritking/" target="_blank" rel="noopener">Visit site →</a></div>
-<div class="card"><div class="k">Hospitality</div><h3>Berakah Hotel &amp; Events Center</h3><p>A luxury hotel website with room tiers, an events section and an online booking flow with live price totals.</p><div class="chips"><span class="chip">Website</span><span class="chip">Booking</span><span class="chip">Responsive</span></div><a class="visit" href="https://novastack-studio1.github.io/Berakah-hotel-and-events-center/" target="_blank" rel="noopener">Visit site →</a></div>
-<div class="card"><div class="k">Crypto · Solana</div><h3>$MOUSE</h3><p>A meme-coin launch site with tokenomics, roadmap and how-to-buy steps, plus buy and community links.</p><div class="chips"><span class="chip">Web3</span><span class="chip">Landing page</span><span class="chip">Moonshot</span></div><a class="visit" href="https://novastack-studio1.github.io/-MOUSE/" target="_blank" rel="noopener">Visit site →</a></div>
-</div>
 
-<h2>Toolbox</h2>
-<div class="stack"><span class="chip">Full-stack web</span><span class="chip">Paystack payments</span><span class="chip">Google Apps Script</span><span class="chip">Solana RPC</span><span class="chip">Web3 landing pages</span></div>
+<article class="card"><div class="shot" style="background:linear-gradient(135deg,#1c2b4a,#c9a24a)">Britking Homes</div><div class="in">
+<span class="status">Live client project</span><h3>Real estate website</h3>
+<p>Property listings by location, with a WhatsApp button that sends the chosen property and price straight to the sales team.</p>
+<div class="tags"><span>Real estate</span><span>WhatsApp enquiry</span><span>Responsive</span></div>
+<a class="v" href="https://novastack-studio1.github.io/-Britking-homes-and-properties-ltd/" target="_blank" rel="noopener">View live site</a></div></article>
 
-<h2 id="how">How we work</h2>
-<div class="steps">
-<div class="step"><p><b>Discovery.</b> We agree on goals, scope and timeline.</p></div>
-<div class="step"><p><b>Build.</b> You see progress early and often.</p></div>
-<div class="step"><p><b>Launch.</b> Live, tested and handed over properly.</p></div>
-</div>
+<article class="card"><div class="shot" style="background:linear-gradient(135deg,#0f6b5e,#7fe0c4)">Berakah Hotel</div><div class="in">
+<span class="status">Live client project</span><h3>Hotel &amp; events system</h3>
+<p>Public website with live room availability, an admin dashboard, and separate Reception and Bar point-of-sale screens, all backed by Google Sheets.</p>
+<div class="tags"><span>Hospitality</span><span>Booking</span><span>POS</span><span>Admin</span></div>
+<a class="v" href="https://novastack-studio1.github.io/Berakah-hotel-and-events-center/" target="_blank" rel="noopener">View live site</a></div></article>
 
-<section class="card cta" id="contact">
-<h2>Let's build yours.</h2>
-<p style="color:var(--mut)">Message us on X with what you need.</p>
-<div class="btns" style="justify-content:center"><a class="btn pri" href="https://x.com/NovaStackStudio" target="_blank" rel="noopener">@NovaStackStudio on X</a></div>
-</section>
-<footer>© 2026 NovaStack Studio</footer>
-</main>
+<article class="card"><div class="shot" style="background:linear-gradient(135deg,#2d6cdf,#9fd0ff)">$MOUSE</div><div class="in">
+<span class="status">Live crypto project</span><h3>Web3 landing page</h3>
+<p>A playful, project-themed landing page for a Solana token, built to look sharp on phones and desktops.</p>
+<div class="tags"><span>Web3</span><span>Solana</span><span>Landing page</span></div>
+<a class="v" href="https://novastack-studio1.github.io/-MOUSE/" target="_blank" rel="noopener">View live site</a></div></article>
+
+<article class="card"><div class="shot" style="background:linear-gradient(135deg,#2a1a10,#d4a64a)">Lagos Bistro</div><div class="in">
+<span class="status">Concept build</span><h3>Restaurant ordering site</h3>
+<p>Full menu, food ordering and Paystack checkout, plus an admin page showing orders and revenue.</p>
+<div class="tags"><span>Restaurant</span><span>Paystack</span><span>Admin</span></div>
+<a class="v" href="https://novastack-studio1.github.io/TheLagosBistro/" target="_blank" rel="noopener">View live site</a></div></article>
+
+<article class="card"><div class="shot" style="background:linear-gradient(135deg,#0b5fa5,#4fc3f7)">Prime Wash</div><div class="in">
+<span class="status">Concept build</span><h3>Laundry &amp; dry-cleaning site</h3>
+<p>A multi-branch service website with an automatic hero slider and clear service pages.</p>
+<div class="tags"><span>Services</span><span>Multi-branch</span></div></div></article>
+
+<article class="card"><div class="shot" style="background:linear-gradient(135deg,#222,#e0572f)">Sarkin Mota</div><div class="in">
+<span class="status">In development</span><h3>Car dealership platform</h3>
+<p>A management system for car dealers: inventory, pricing support, customer tracking and WhatsApp follow-up.</p>
+<div class="tags"><span>React</span><span>Node.js</span><span>PostgreSQL</span></div></div></article>
+
+</div></div></section>
+
+<section id="services" style="background:var(--card)"><div class="wrap">
+<h2>What we build</h2>
+<p class="lead">For companies, individuals and startups, in any industry.</p>
+<div class="svc">
+<div><h3>Business websites</h3><p>Clear, fast sites that explain what you do and make it easy to contact you.</p></div>
+<div><h3>Landing pages</h3><p>One focused page for a product, launch or campaign, built to turn visitors into leads.</p></div>
+<div><h3>Online stores &amp; checkout</h3><p>Sell products or take orders with secure payment checkout, such as Paystack.</p></div>
+<div><h3>Booking &amp; admin tools</h3><p>Dashboards, booking pages and POS screens so you can run your business online.</p></div>
+</div></div></section>
+
+<section id="process"><div class="wrap">
+<h2>How we work together</h2>
+<p class="lead">Simple, clear and no surprises.</p>
+<ol class="steps">
+<li><b>Tell us your goal</b><span>Send a message about your business and what you need.</span></li>
+<li><b>Get a plan and price</b><span>We agree on pages, features, timeline and cost.</span></li>
+<li><b>See it take shape</b><span>You review the design and we adjust until it’s right.</span></li>
+<li><b>Launch and support</b><span>Your site goes live, and we help with changes after.</span></li>
+</ol></div></section>
+
+<section id="about" style="background:var(--card)"><div class="wrap about">
+<div><h2>About NovaStack Studio</h2>
+<p>NovaStack Studio is a young studio that builds websites for businesses of every kind. We work with HTML, CSS, JavaScript, React, Node.js, Google Apps Script and Paystack, and we’re comfortable with Web3 and Solana projects too.</p>
+<p>Our team is certified in front-end web development and product design, and we treat every client’s site as if it were our own.</p></div>
+<ul class="facts"><li>Certified front-end developer</li><li>Certified product designer (NITDA)</li><li>Payments, booking and admin dashboards</li><li>Based in Abuja, working worldwide</li></ul>
+</div></section>
+
+<section id="contact"><div class="wrap">
+<h2>Let’s build your website</h2>
+<p class="lead">Tell us about your business and we’ll reply with ideas and a clear quote.</p>
+<div class="ways">
+<a href="mailto:novastackstudio1@gmail.com?subject=Website%20project%20enquiry"><small>Email</small><b>novastackstudio1@gmail.com</b></a>
+<a href="https://wa.me/2349076954596?text=Hi%20NovaStack%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20website." target="_blank" rel="noopener"><small>WhatsApp / Call</small><b>09076954596</b></a>
+<a href="https://x.com/NovaStackStudio" target="_blank" rel="noopener"><small>X (Twitter)</small><b>@NovaStackStudio</b></a>
+</div></div></section>
+
+<footer>© <span id="y">2026</span> NovaStack Studio. Websites that work as hard as you do.</footer>
+<script>document.getElementById("y").textContent=new Date().getFullYear()</script>
 </body>
 </html>
-z
